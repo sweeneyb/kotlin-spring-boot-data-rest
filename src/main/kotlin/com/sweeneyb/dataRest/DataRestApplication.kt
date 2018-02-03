@@ -1,12 +1,11 @@
-package io.mikael.app
+package com.sweeneyb.dataRest
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
-@SpringBootApplication
-class Application
+
 
 @RestController
 class HelloController(val helloService: HelloService) {
@@ -19,6 +18,12 @@ class HelloController(val helloService: HelloService) {
 
 }
 
-fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+@SpringBootApplication
+open class DataRestApplication {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            SpringApplication.run(DataRestApplication::class.java, *args)
+        }
+    }
 }

@@ -1,6 +1,5 @@
-package io.mikael.app.test
+package com.sweeneyb.dataRest
 
-import io.mikael.app.Menu
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

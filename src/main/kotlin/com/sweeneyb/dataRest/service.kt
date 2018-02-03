@@ -1,4 +1,4 @@
-package io.mikael.app
+package com.sweeneyb.dataRest
 
 import org.springframework.stereotype.Service
 
