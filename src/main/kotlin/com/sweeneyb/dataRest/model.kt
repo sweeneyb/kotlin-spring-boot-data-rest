@@ -1,8 +1,10 @@
 package com.sweeneyb.dataRest
 
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
+import java.util.*
 import javax.persistence.*
 import javax.persistence.GenerationType.IDENTITY
 
@@ -69,12 +71,15 @@ class Menu {
     @Column(name = "menu_date", columnDefinition = "DATE")
     var date: LocalDate? = null
 
+    @Column(name = "menu_date2", columnDefinition = "DATE")
+    var date2: Date? = null
+
     var title: String? = null
 
     @Column(name = "menu_text")
     var text: String? = null
 
-    override fun toString() = "Menu($id, ${restaurant?.id}, $date, $title, $text)"
+    override fun toString() = "Menu($id, ${restaurant?.id}, $date, $date2, $title, $text)"
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -105,4 +110,4 @@ class Menu {
 interface RestaurantRepository : JpaRepository<Restaurant, Long>
 
 @RepositoryRestResource
-interface MenuRepository : JpaRepository<Menu, Long>
+interface MenuRepository : PagingAndSortingRepository<Menu, Long>
