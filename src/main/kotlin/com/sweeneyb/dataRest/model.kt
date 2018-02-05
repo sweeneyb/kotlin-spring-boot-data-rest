@@ -1,5 +1,7 @@
 package com.sweeneyb.dataRest
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
@@ -69,6 +71,7 @@ class Menu {
     var restaurant: Restaurant? = null
 
     @Column(name = "menu_date", columnDefinition = "DATE")
+    @JsonSerialize(using = LocalDateSerializer::class)
     var date: LocalDate? = null
 
     @Column(name = "menu_date2", columnDefinition = "DATE")
